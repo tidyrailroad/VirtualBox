@@ -16,3 +16,22 @@
 -->
 
 # virtualbox
+
+## Usage
+
+```
+docker \
+    run \
+    --interactive \
+    --tty \
+    --rm \
+    --volume /dev/vboxdrv:/dev/vboxdrv:ro \
+    --env DISPLAY \
+    --volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
+    tidyrailroad/virtualbox:0.0.0
+```
+
+Because this depends on host resources, this will probably only work with an ubuntu 16.04 host with VirtualBox installed.
+See run.sh for instruction on how to install VirtualBox on the host.
+
+It is necessary to set DISPLAY and share /tmp/.X11-unix for a GUI display, but if you want to run headless, then that is not necessary.
